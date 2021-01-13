@@ -12,6 +12,8 @@
     <modules>
         <module>skse-consumer-7000</module>
         <module>skse-provider-9000</module>
+        <module>skse-provider-9001</module>
+        <module>skse-provider-9002</module>
         <module>cloud-api-commons</module>
     </modules>
     <!--统一管理jar包版本-->

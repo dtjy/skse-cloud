@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * @Author jiangyao
  * @Date 2021/1/13 10:28
@@ -23,11 +21,7 @@ public class PayFeignController {
     @RequestMapping("{t1}")
     @ResponseBody
     public String test1(@PathVariable("t1")String t1){
-        try {
-            TimeUnit.SECONDS.sleep(3);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
         return "t1:"+t1+"端口号"+port;
     }
 

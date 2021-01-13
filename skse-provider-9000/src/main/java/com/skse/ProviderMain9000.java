@@ -12,9 +12,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-public class PaymentMain9000 {
+public class ProviderMain9000 {
 
     public static void main(String[] args) {
-        SpringApplication.run(PaymentMain9000.class, args);
+        SpringApplication.run(ProviderMain9000.class, args);
     }
 }

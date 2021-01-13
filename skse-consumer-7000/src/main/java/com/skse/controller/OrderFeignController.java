@@ -2,6 +2,7 @@ package com.skse.controller;
 
 import com.skse.feign.OrderTestFeign;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,13 +20,13 @@ public class OrderFeignController {
 
     @Autowired
     OrderTestFeign orderTestFeign;
+
     @Autowired
     DiscoveryClient discoveryClient;
     @RequestMapping("{t1}")
     @ResponseBody
     public String test1(@PathVariable("t1")String t1){
 
-        System.out.println(discoveryClient.getServices());
         return orderTestFeign.test1(t1);
     }
 
@@ -33,6 +34,12 @@ public class OrderFeignController {
     @ResponseBody
     public String test2(@RequestParam(value = "p1",required = false)String p1){
         return orderTestFeign.test2(p1);
+    }
+
+    @RequestMapping("/service")
+    @ResponseBody
+    public Object service(){
+        return discoveryClient.getServices();
     }
 
 }

@@ -1,5 +1,6 @@
 server:
-  port: 80
+  port: 7000
+
 spring:
   application:
     name: skse-consumer
@@ -15,3 +16,11 @@ spring:
       transport:
         dashboard: localhost:9999
         port: 8719
+
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeou: 5000
+
+logging:
+  level:
+    com.skse.feign.OrderTestFeign: debug

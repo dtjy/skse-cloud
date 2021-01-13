@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @Date 2021/1/13 10:22
  **/
 @Component
-@FeignClient(name = "skse-payment-service",value = "skse-payment-service",path = "/payFeign")
+@FeignClient(name = "skse-provider",value = "skse-provider",path = "/payFeign")
 public interface OrderTestFeign {
 
     @RequestMapping("{t1}")
