@@ -1,0 +1,17 @@
+server:
+  port: 80
+spring:
+  application:
+    name: skse-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: dd6f51ca-8481-4e36-9563-3eab3e121664
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+    sentinel:
+      transport:
+        dashboard: localhost:9999
+        port: 8719
