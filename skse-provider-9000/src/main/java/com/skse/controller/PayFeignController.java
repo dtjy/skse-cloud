@@ -1,5 +1,6 @@
 package com.skse.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,17 +21,21 @@ public class PayFeignController {
     @Value("${server.port}")
     String port;
 
-    @RequestMapping("{t1}")
+    @SentinelResource(value = "payTest1", fallback = "test1_fb")
+    @RequestMapping("/t1")
     @ResponseBody
-    public String test1(@PathVariable("t1")String t1){
-        try {
-            TimeUnit.SECONDS.sleep(3);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return "t1:"+t1+"端口号"+port;
+    public String test1(@RequestParam(value = "p1",required = false)String p1){
+//        try {
+//            TimeUnit.SECONDS.sleep(3);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+        Integer.parseInt(p1);
+        return "t1:"+p1+"端口号"+port;
     }
-
+    public String test1_fb(String p1,Throwable throwable){
+        return "order test1 fallback,"+p1;
+    }
     @RequestMapping("/t2")
     @ResponseBody
     public String test2(@RequestParam(value = "p1",required = false)String p1){

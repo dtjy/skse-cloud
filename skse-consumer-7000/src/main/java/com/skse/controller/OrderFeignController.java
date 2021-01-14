@@ -1,5 +1,6 @@
 package com.skse.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.skse.feign.OrderTestFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,12 +24,19 @@ public class OrderFeignController {
 
     @Autowired
     DiscoveryClient discoveryClient;
-    @RequestMapping("{t1}")
-    @ResponseBody
-    public String test1(@PathVariable("t1")String t1){
 
-        return orderTestFeign.test1(t1);
+    @SentinelResource(value = "test1", blockHandler = "test1_bh",blockHandlerClass = OrderBlockHandler.class, fallback = "test1_fallback")
+    @RequestMapping("/t1")
+    @ResponseBody
+    public String test1(@RequestParam(value = "p1",required = false)String p1,@RequestParam(value = "p2",required = false)String p2){
+        Integer.parseInt(p2);
+        return orderTestFeign.test1(p2);
     }
+
+    public String test1_fallback(@RequestParam(value = "p1",required = false)String p1,@RequestParam(value = "p2",required = false)String p2, Throwable throwable){
+            return "test1_fallback"+throwable.getMessage();
+    }
+
 
     @RequestMapping("/t2")
     @ResponseBody

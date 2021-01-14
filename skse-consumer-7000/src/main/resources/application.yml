@@ -24,3 +24,7 @@ ribbon:
 logging:
   level:
     com.skse.feign.OrderTestFeign: debug
+
+feign:
+  sentinel:
+    enabled: true
