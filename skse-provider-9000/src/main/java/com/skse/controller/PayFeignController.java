@@ -34,7 +34,8 @@ public class PayFeignController {
         return "t1:"+p1+"端口号"+port;
     }
     public String test1_fb(String p1,Throwable throwable){
-        return "order test1 fallback,"+p1;
+        System.out.println(throwable.getStackTrace());
+        return "服务端 test1 fallback,"+p1;
     }
     @RequestMapping("/t2")
     @ResponseBody

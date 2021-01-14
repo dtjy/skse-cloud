@@ -15,6 +15,9 @@
         <module>skse-provider-9001</module>
         <module>skse-provider-9002</module>
         <module>cloud-api-commons</module>
+        <module>skse-seata-account-9102</module>
+        <module>skse-seata-order-9100</module>
+        <module>skse-seata-storage-9101</module>
     </modules>
     <!--统一管理jar包版本-->
     <properties>

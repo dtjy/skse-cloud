@@ -1,9 +1,9 @@
 server:
-  port: 7000
+  port: 9102
 
 spring:
   application:
-    name: skse-consumer
+    name: skse-account
   cloud:
     nacos:
       discovery:
@@ -16,23 +16,23 @@ spring:
       transport:
         dashboard: localhost:9999
         port: 8719
-      datasource:
-        ds1:
-          nacos:
-            server-addr: localhost:8848
-            namespace: ${spring.cloud.nacos.discovery.namespace}
-            dataId: sentinel-service
-            groupId: DEFAULT_GROUP
-            data-type: json
-            rule-type: flow
-
-ribbon:
-  ReadTimeout: 5000
-  ConnectTimeou: 5000
+    alibaba:
+      seata:
+        tx-service-group: skse_tx_group
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://106.53.244.217:13307/seata_account
+    username: root
+    password: -pl,)OKM
 
 logging:
   level:
     com.skse.feign.OrderTestFeign: debug
+    io:
+      seata: info
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
 
 feign:
   sentinel:

@@ -29,7 +29,7 @@ public class OrderFeignController {
     @RequestMapping("/t1")
     @ResponseBody
     public String test1(@RequestParam(value = "p1",required = false)String p1,@RequestParam(value = "p2",required = false)String p2){
-        Integer.parseInt(p2);
+        Integer.parseInt(p1);
         return orderTestFeign.test1(p2);
     }
 
