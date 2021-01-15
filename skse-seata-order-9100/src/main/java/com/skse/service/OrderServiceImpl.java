@@ -1,6 +1,9 @@
 package com.skse.service;
 
 import com.skse.dao.OrderInfoDao;
+import com.skse.feign.AccountFeign;
+import com.skse.feign.StorageFeign;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,10 +18,17 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     OrderInfoDao orderInfoDao;
 
-    @Transactional
+    @Autowired
+    StorageFeign storageFeign;
+
+    @Autowired
+    AccountFeign accountFeign;
+
+    @GlobalTransactional(name = "order-tx",rollbackFor = Exception.class,noRollbackFor = ArrayIndexOutOfBoundsException.class)
     @Override
     public int create(Integer id, String orderData) {
         int i = orderInfoDao.create(id,orderData);
-        return i;
+        int j = storageFeign.create(id,orderData);
+        return i+j;
     }
 }

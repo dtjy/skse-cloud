@@ -36,4 +36,8 @@ mybatis:
 
 feign:
   sentinel:
-    enabled: true
+    enabled: false
+
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeou: 5000
