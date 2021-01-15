@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Author jiangyao
  * @Date 2021/1/15 13:47
  **/
-@FeignClient(value = "skse-account",path = "/account")
+@FeignClient(value = "skse-account",path = "/account",fallback = AccountFeignFallback.class)
 public interface AccountFeign {
 
     @GetMapping("/t1")
