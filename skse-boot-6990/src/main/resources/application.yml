@@ -1,0 +1,6 @@
+server:
+  port: 6990
+
+spring:
+  application:
+    name: skse-boot
