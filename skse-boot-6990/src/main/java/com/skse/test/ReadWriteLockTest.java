@@ -19,6 +19,7 @@ public class ReadWriteLockTest {
         while (!(writeLock.get()==null)){
 
         }
+        readLock.set(thread);
         System.out.println(thread.getName()+"获取到读锁");
     }
 
