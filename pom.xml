@@ -22,15 +22,18 @@
     </modules>
     <!--统一管理jar包版本-->
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <alibaba.cloud.version>2.1.0.RELEASE</alibaba.cloud.version>
+        <druid.version>1.1.16</druid.version>
+        <guvava.vsersion>30.1-jre</guvava.vsersion>
+        <junit.version>4.12</junit.version>
+        <log4j.version>1.2.17</log4j.version>
+        <lombok.version>1.18.10</lombok.version>
         <maven.compiler.source>12</maven.compiler.source>
         <maven.compiler.target>12</maven.compiler.target>
-        <junit.version>4.12</junit.version>
-        <lombok.version>1.18.10</lombok.version>
-        <log4j.version>1.2.17</log4j.version>
-        <mysql.version>8.0.18</mysql.version>
-        <druid.version>1.1.16</druid.version>
         <mybatis.spring.boot.version>2.1.1</mybatis.spring.boot.version>
+        <mysql.version>8.0.18</mysql.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <springboot.version>2.1.0.RELEASE</springboot.version>
     </properties>
 
     <dependencyManagement>
@@ -39,7 +42,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.2.2.RELEASE</version>
+                <version>${springboot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -55,7 +58,7 @@
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.1.0.RELEASE</version>
+                <version>${alibaba.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -90,20 +93,40 @@
                 <version>${lombok.version}</version>
                 <optional>true</optional>
             </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guvava.vsersion}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
     <build>
         <plugins>
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <fork>true</fork>-->
+<!--                    <addResources>true</addResources>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
                 <configuration>
-                    <fork>true</fork>
-                    <addResources>true</addResources>
+                    <target>1.8</target>
+                    <source>1.8</source>
+                    <encoding>UTF-8</encoding>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>
+
+
+
     </build>
 
 </project>
