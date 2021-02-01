@@ -1,4 +1,4 @@
-package com.skse.test;
+package com.skse.test.thread;
 
 public class FutureTest1 {
 

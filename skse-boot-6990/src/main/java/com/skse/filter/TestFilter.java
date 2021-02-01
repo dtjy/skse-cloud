@@ -19,8 +19,8 @@ public class TestFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        String body = StreamUtils.copyToString(request.getInputStream(), Charset.defaultCharset());
-        log.info(body);
+//        String body = StreamUtils.copyToString(request.getInputStream(), Charset.defaultCharset());
+//        log.info(body);
         chain.doFilter(request,response);
     }
 }

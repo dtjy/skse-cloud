@@ -16,9 +16,16 @@ import java.util.Objects;
 @NoArgsConstructor
 public class Person implements Serializable {
     private int age;
-
+    private String sex;
+    private String userCode;
+    private String password;
     public void add(){
         this.age+=1;
+    }
+
+    public Person(int age, String sex) {
+        this.age = age;
+        this.sex = sex;
     }
 
     @Override

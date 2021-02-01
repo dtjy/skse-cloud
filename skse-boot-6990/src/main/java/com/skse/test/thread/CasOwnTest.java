@@ -1,4 +1,4 @@
-package com.skse.test;
+package com.skse.test.thread;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;

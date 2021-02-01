@@ -1,4 +1,4 @@
-package com.skse.test;
+package com.skse.test.thread;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -36,7 +36,7 @@ public class MyStartTest {
 //        String excelYear = m.group();
 //        m.find();
 //        String excelMonth = m.group();
-         final Person person = new Person(0);
+         final Person person = new Person(0,null);
 
         final AtomicReference<Person> atomicReference = new AtomicReference(person);
 //        AtomicReference<Person> atomicReference1 = new AtomicReference(new Person(1));
@@ -45,7 +45,7 @@ public class MyStartTest {
             new Thread(()->{
                 for (int j=1; j<=1000; j++){
 //                    person.add();
-                    Person p = new Person(atomicReference.get().getAge()+1);
+                    Person p = new Person(atomicReference.get().getAge()+1,null);
 //                    person.add();
 
 
