@@ -1,0 +1,4 @@
+server:
+  port: 6989
+  servlet:
+    context-path: /jta
