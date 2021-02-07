@@ -2,3 +2,32 @@ server:
   port: 6989
   servlet:
     context-path: /jta
+
+mysql:
+  datasource:
+    test1:
+      url: jdbc:mysql://106.53.244.217:13307/seata_storage
+      username: root
+      password: -pl,)OKM
+      minPoolSize: 3
+      maxPoolSize: 25
+      maxLifetime: 20000
+      borrowConnectionTimeout: 30
+      loginTimeout: 30
+      maintenanceInterval: 60
+      maxIdleTime: 60
+      testQuery: select 1
+    test2:
+      url: jdbc:mysql://106.53.244.217:13307/seata_account
+      username: root
+      password: -pl,)OKM
+      minPoolSize: 3
+      maxPoolSize: 25
+      maxLifetime: 20000
+      borrowConnectionTimeout: 30
+      loginTimeout: 30
+      maintenanceInterval: 60
+      maxIdleTime: 60
+      testQuery: select 1
+
+

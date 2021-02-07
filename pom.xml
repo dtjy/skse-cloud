@@ -19,6 +19,7 @@
         <module>skse-seata-order-9100</module>
         <module>skse-seata-storage-9101</module>
         <module>skse-boot-6990</module>
+        <module>skse-test-10000</module>
     </modules>
     <!--统一管理jar包版本-->
     <properties>
