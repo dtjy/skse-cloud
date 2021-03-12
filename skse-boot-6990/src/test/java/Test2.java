@@ -1,13 +1,39 @@
+import org.assertj.core.util.Lists;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * @Author jiangyao
  * @Date 2021/2/1 13:41
  **/
 public class Test2 {
+
+    @Test
+
+
+    public void test2(){
+        List<String> list = Lists.newArrayList("a","b","c","d");
+        Iterator<String> iterator = list.iterator();
+
+        while (iterator.hasNext()){
+//            System.out.println(iterator.next());
+            String str = iterator.next();
+            System.out.println(str);
+            iterator.remove();
+
+
+            iterator.remove();
+            System.out.println(str.length());
+        }
+
+
+//        System.out.println(list);
+
+    }
 
     @Test
     public void test1(){

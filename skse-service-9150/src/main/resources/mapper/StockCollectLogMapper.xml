@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.skse.dao.StockCollectLogMapper" >
+  <resultMap id="BaseResultMap" type="com.skse.model.StockCollectLog" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="stock_code" property="stockCode" jdbcType="VARCHAR" />
+    <result column="week_date" property="weekDate" jdbcType="INTEGER" />
+    <result column="create_date" property="createDate" jdbcType="DATE" />
+    <result column="item" property="item" jdbcType="VARCHAR" />
+    <result column="data" property="data" jdbcType="DOUBLE" />
+    <result column="data_percentage" property="dataPercentage" jdbcType="DOUBLE" />
+    <result column="increase_decrease" jdbcType="DOUBLE" property="increaseDecrease" />
+  </resultMap>
+
+  <select id="querySameLog" resultType="int" parameterType="com.skse.model.StockCollectLog">
+    select count(*) from stock_collect_log
+    where item=#{item} and data=#{data} and increase_decrease=#{increaseDecrease}
+  </select>
+</mapper>

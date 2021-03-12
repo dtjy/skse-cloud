@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.skse.dao.StockMailTaskMapper">
+  <update id="updateTaskStatus">
+    update stock_mail_task set stock_type = CONCAT(stock_type,"_x") where send_mail = #{mail} and cron_express={cron}
+  </update>
+
+  <select id="listTask" resultType="com.skse.model.StockMailTask" parameterType="string">
+    SELECT  id,send_mail,stock_code,stock_type,data_index,cron_express,check_time,task_status,item
+    FROM stock_mail_task
+    WHERE       (  task_status = #{status} ) order by id
+  </select>
+</mapper>
