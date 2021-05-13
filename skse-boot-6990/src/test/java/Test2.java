@@ -1,10 +1,9 @@
 import org.assertj.core.util.Lists;
 import org.junit.Test;
 
+import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * @Author jiangyao
@@ -12,9 +11,25 @@ import java.util.List;
  **/
 public class Test2 {
 
+
     @Test
+    public void test4(){
+//        System.out.println(String.format("http://www.{0}.com","baidu"));
+//        System.out.println(MessageFormat.format("http://www.{0}.{1}","baidu","com"));
+        System.out.println(String.format("http://www.%s.com","baidu"));
+    }
+    @Test
+    public void test3(){
+        Map<String,String> map = new HashMap<>();
+        map.put("a","aa");
+        map.put("b","bb");
+        map.put("c","cc");
 
-
+        map.forEach((k, v) -> {
+            System.out.println(k+"："+v);
+        });
+    }
+    @Test
     public void test2(){
         List<String> list = Lists.newArrayList("a","b","c","d");
         Iterator<String> iterator = list.iterator();
