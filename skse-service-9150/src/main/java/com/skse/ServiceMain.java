@@ -20,6 +20,7 @@ public class ServiceMain {
     public static void main(String[] args) {
         SpringApplication app =  new SpringApplication(ServiceMain.class);
         app.addListeners(new ApplicationPidFileWriter());
+
         app.run(args);
         LOGGER.info("启动成功");
     }
